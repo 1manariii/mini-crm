@@ -1,0 +1,50 @@
+.task-history {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    position: relative;
+    padding: 0 0 20px 24px;
+    border-left: 2px solid var(--color-border);
+
+    &:last-child {
+      border-left-color: transparent;
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__transition {
+    margin: 0 0 2px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__meta {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+
+  &__comment {
+    margin: 8px 0 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: var(--color-bg-subtle);
+    font-size: 14px;
+  }
+}

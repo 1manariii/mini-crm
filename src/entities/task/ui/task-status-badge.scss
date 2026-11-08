@@ -1,0 +1,35 @@
+.task-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  &--new {
+    background-color: #e0e7ff;
+    color: #3730a3;
+  }
+
+  &--in_work {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  &--in_review {
+    background-color: #fef3c7;
+    color: #b45309;
+  }
+
+  &--rework {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+
+  &--accepted {
+    background-color: #dcfce7;
+    color: #15803d;
+  }
+}

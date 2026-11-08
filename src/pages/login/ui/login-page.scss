@@ -1,0 +1,28 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 16px;
+
+  &__card {
+    width: 100%;
+    max-width: 380px;
+    padding: 32px;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  &__title {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin: 0 0 24px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+  }
+}
