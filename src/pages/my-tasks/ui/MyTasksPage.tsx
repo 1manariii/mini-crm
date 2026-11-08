@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useAuth } from '@/app/providers/AuthProvider'
-import { TASK_STATUS_LABELS, fetchMyTasks } from '@/entities/task'
+import { TASK_STATUS_LABELS, TASK_STATUS_ORDER, fetchMyTasks } from '@/entities/task'
 import type { TaskListItem, TaskStatus } from '@/entities/task'
 import { EmptyState, PageLoader } from '@/shared/ui'
 import { TaskList } from '@/widgets/task-list'
@@ -33,7 +33,7 @@ export function MyTasksPage() {
   }, [tasks, filter])
 
   const usedStatuses = useMemo(
-    () => [...new Set((tasks ?? []).map((task) => task.status))] as TaskStatus[],
+    () => TASK_STATUS_ORDER.filter((status) => (tasks ?? []).some((task) => task.status === status)),
     [tasks],
   )
 
@@ -45,6 +45,7 @@ export function MyTasksPage() {
 
       <div className="my-tasks-page__filters">
         <button
+          type="button"
           className={`my-tasks-page__filter${filter === 'all' ? ' my-tasks-page__filter--active' : ''}`}
           onClick={() => setFilter('all')}
         >
@@ -53,6 +54,7 @@ export function MyTasksPage() {
         {usedStatuses.map((status) => (
           <button
             key={status}
+            type="button"
             className={`my-tasks-page__filter${filter === status ? ' my-tasks-page__filter--active' : ''}`}
             onClick={() => setFilter(status)}
           >

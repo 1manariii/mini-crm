@@ -22,20 +22,20 @@ export function TaskList({ tasks, showObject = false, showAssignee = false }: Ta
   return (
     <ul className="task-list">
       {tasks.map((task) => (
-        <li key={task.id} className="task-list__item">
-          <div className="task-list__main">
-            <Link className="task-list__title" to={ROUTES.task(task.id)}>
-              {task.title}
-            </Link>
-            <span className="task-list__meta">
-              {showObject && task.object && <>Объект: {task.object.name} · </>}
-              {showAssignee && task.assignee && <>Исполнитель: {task.assignee.full_name} · </>}
-              {formatDate(task.created_at)}
+        <li key={task.id}>
+          <Link className="task-list__item" to={ROUTES.task(task.id)}>
+            <div className="task-list__main">
+              <span className="task-list__title">{task.title}</span>
+              <span className="task-list__meta">
+                {showObject && task.object && <>Объект: {task.object.name} · </>}
+                {showAssignee && task.assignee && <>Исполнитель: {task.assignee.full_name} · </>}
+                {formatDate(task.created_at)}
+              </span>
+            </div>
+            <span className="task-list__status">
+              <TaskStatusBadge status={task.status} />
             </span>
-          </div>
-          <span className="task-list__status">
-            <TaskStatusBadge status={task.status} />
-          </span>
+          </Link>
         </li>
       ))}
     </ul>
